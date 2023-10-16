@@ -5,7 +5,7 @@ Como executar o código:
 1 - Instale o python no computador:
     		https://www.python.org/downloads/
 
-2 - Instale as bibliotecas 'requests', 'BeautifulSoup','schedule' e 'pymongo'. 
+2 - Instale as bibliotecas 'requests', 'BeautifulSoup', 'schedule' e 'pymongo'. 
 
 Para baixá-las vá ao menu iniciar e digite 'cmd', clique no 	programa que tenha esse nome, assim, na janela que aparecer digite sem aspas;
 
