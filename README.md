@@ -12,7 +12,7 @@ Para baixá-las vá ao menu iniciar e digite 'cmd', clique no 	programa que tenh
 	 	'pip install requests' 	    						
 		'pip install beautifulsoup4'
   		'pip install schedule'
-    		'pip install pymongo'
+    	'pip install pymongo'
 
 3 - Clique duas vezes no arquivos (crawler ou database) para que eles funcionem.
 
