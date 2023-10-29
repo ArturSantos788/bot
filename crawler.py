@@ -4,9 +4,17 @@ import json
 import time
 import schedule
 from datetime import datetime
+from database import Database
+from dotenv import load_dotenv
+from bot import BOT
 
 class Crawler:
     
+    def __init__(self):
+        load_dotenv()
+        self.db = Database()
+        self.bot =  BOT()
+
     def request_data(self, url: str, retry: bool = False):
         try:    
             response = requests.get(url)
@@ -56,7 +64,12 @@ class Crawler:
                     'date': datetime.now
                 }
                 
-                print('WEBSITE', data)
+                response = self.db.insert(data)
+                if response is not None:
+                    if 'old_price' in response:
+                        response["old_price"] = 0
+                    self.bot.post(response)
+
 
     def execute(self, num_pages: int = 3):
         # Itera sobre um número especificado de páginas e extrai informações dos produtos em cada página

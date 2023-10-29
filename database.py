@@ -30,8 +30,17 @@ class Database:
 
         # Verifica se o resultado da consulta é nulo (nenhum documento encontrado) ou se o preço é diferente
         # do novo dado. Se isso for verdadeiro, insere o novo dado na coleção 'offers'.
-        if (result is None) or (result['price'] > data['price'] or result['price'] < data['price']):
+        
+        if result is None: 
+            self.offers.insert_one(data)
+            return data
+        elif result['price'] > data['price'] or result['price'] < data['price']:
+            product = data.copy()
+            product['old_price'] = result['price']
             return self.offers.insert_one(data)
+            return product
+        else:
+            return None
 
 if __name__ == '__main__':
     # Cria uma instância da classe Database
